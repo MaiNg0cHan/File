@@ -77,7 +77,7 @@ public class RunMain {
                                 do {
                                     System.out.println("Chọn loại hàng: ");
                                     System.out.println("1. THỰC PHẨM");
-                                    System.out.println("2. ĐỒ DÙNG");
+                                    System.out.println("2. SÀNH SỨ");
                                     System.out.println("3. ĐIỆN MÁY");
                                     System.out.println("0. Thoát");
                                     System.out.print("Chọn: ");
@@ -87,7 +87,7 @@ public class RunMain {
                                             timKiemTheoLoai(Loai.THUCPHAM);
                                             break;
                                         case 2:
-                                            timKiemTheoLoai(Loai.DODUNG);
+                                            timKiemTheoLoai(Loai.SANHSU);
                                             break;
                                         case 3:
                                             timKiemTheoLoai(Loai.DIENMAY);
@@ -247,11 +247,11 @@ public class RunMain {
     }
 
     private static void thongKeSLTungLoai() {
-        int sDienMay=0, sDoDung=0, sThucPham=0;
+        int sDienMay=0, sSanhSu=0, sThucPham=0;
         for (HangHoa h: hangHoas
              ) {
-            if (h.getLoai().compareTo(Loai.DODUNG)==0){
-                sDoDung+=h.getSlTonKho();
+            if (h.getLoai().compareTo(Loai.SANHSU)==0){
+                sSanhSu+=h.getSlTonKho();
             }else if(h.getLoai().compareTo(Loai.THUCPHAM)==0){
                 sThucPham+=h.getSlTonKho();
             }else {
@@ -260,7 +260,7 @@ public class RunMain {
         }
         System.out.println("==== THỐNG KÊ SỐ LƯỢNG TỪNG LOẠI ====");
         System.out.printf("%20s%20s%20s%20s\n", "Loại", "ĐIỆN MÁY", "SÀNH SỨ", "THỰC PHẨM");
-        System.out.printf("%20s%20s%20s%20s\n", "Số lượng", sDienMay+"", sDoDung+"", sThucPham+"");
+        System.out.printf("%20s%20s%20s%20s\n", "Số lượng", sDienMay+"", sSanhSu+"", sThucPham+"");
     }
 
     private static void thongKeTongGiaTriKho() {
@@ -458,12 +458,12 @@ public class RunMain {
 
     private static void themHangHoa() {
         sc.nextLine();
-        String loai = Loai.THUCPHAM;
+        Loai loai = Loai.THUCPHAM;
         int ch;
         do {
             System.out.println("Chọn loại hàng: ");
             System.out.println("1. THỰC PHẨM");
-            System.out.println("2. ĐỒ DÙNG");
+            System.out.println("2. SÀNH SỨ");
             System.out.println("3. ĐIỆN MÁY");
             System.out.print("Chọn: ");
             ch = sc.nextInt();
@@ -473,7 +473,7 @@ public class RunMain {
                     loai = Loai.THUCPHAM;
                     break;
                 case 2:
-                    loai = Loai.DODUNG;
+                    loai = Loai.SANHSU;
                     break;
                 case 3:
                     loai = Loai.DIENMAY;
@@ -575,12 +575,12 @@ public class RunMain {
         hangHoas.add(new HangHoa(Loai.THUCPHAM, "THUCPHAM5", "THỊT GÀ", 4000, 40, LocalDate.parse("11/03/2020", formatter)));
         hangHoas.add(new HangHoa(Loai.THUCPHAM, "THUCPHAM6", "CÀ RỐT", 5000, 80, LocalDate.parse("28/01/2021", formatter)));
 
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG1", "THỚt", 15000, 30, LocalDate.parse("11/12/2019", formatter)));
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG2", "DAO Phi", 33000, 101, LocalDate.parse("21/04/2017", formatter)));
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG3", "CHÉN SỨ", 21000, 21, LocalDate.parse("19/01/2018", formatter)));
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG4", "ẤM TRÀ", 290000, 10, LocalDate.parse("22/02/2019", formatter)));
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG5", "CÁI THAO", 230000, 20, LocalDate.parse("13/07/2020", formatter)));
-        hangHoas.add(new HangHoa(Loai.DODUNG, "DODUNG6", "NỒi CƠM ĐIỆN", 500000, 60, LocalDate.parse("15/01/2021", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU1", "BÁT SỨ CON", 15000, 30, LocalDate.parse("11/12/2019", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU2", "BÁT SỨ TO", 33000, 101, LocalDate.parse("21/04/2017", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU3", "CHÉN SỨ", 21000, 21, LocalDate.parse("19/01/2018", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU4", "ẤM TRÀ", 290000, 10, LocalDate.parse("22/02/2019", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU5", "NỒI NINH SỨ", 230000, 20, LocalDate.parse("13/07/2020", formatter)));
+        hangHoas.add(new HangHoa(Loai.SANHSU, "SANHSU6", "VÒ RƯỢU", 500000, 60, LocalDate.parse("15/01/2021", formatter)));
 
         hangHoas.add(new HangHoa(Loai.DIENMAY, "DIENMAY1", "MÁY GIẶT", 6200000, 100, LocalDate.parse("11/11/2019", formatter)));
         hangHoas.add(new HangHoa(Loai.DIENMAY, "DIENMAY2", "MÁY LỌC NƯỚC", 3000000, 10, LocalDate.parse("11/09/2017", formatter)));
